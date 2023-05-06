@@ -1,11 +1,24 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import Header from './components/Header'
 import SearchBar from './components/SearchBar'
 import Filters from './components/Filters'
 import Country from './components/Country'
 import img from './assets/react.svg'
+import axios from 'axios'
 
 function App() {
+
+  const [data, setData] = useState([]);
+
+  useEffect(() => {
+    axios.get('https://restcountries.com/v3.1/all')
+      .then(response => {
+        setData(response.data);
+      })
+      .catch(error => {
+        console.log(error);
+      })
+  }, []);
 
   return (
     <>
@@ -16,14 +29,19 @@ function App() {
                 <SearchBar/>
                 <Filters/>
               </div>
-              <div className='my-10 grid grid-flow-col'>
-                  <Country 
-                    img={img}
-                    title="country"
-                    population="500"
-                    region="region"
-                    capital="asd"
-                  />
+              <div className='my-10 grid grid-cols-4 gap-16'>
+                 {
+                  data.map(item => (
+  	                <Country 
+                      img={item.flags.png}
+                      alt={item.flags.alt}
+                      title={item.name.common}
+                      population={item.population}
+                      region={item.region}
+                      capital={item.capital}
+                    />
+                  ))
+                 }
               </div>
           </div>
       </div>
