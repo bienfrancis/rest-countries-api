@@ -1,6 +1,6 @@
 import React from 'react';
 
-const SearchBar = () => {
+const SearchBar = ({value, onChange}) => {
     return (
         <div className='relative flex items-center'>
             <span className='absolute left-3'>
@@ -8,7 +8,7 @@ const SearchBar = () => {
                     <path strokeLinecap="round" strokeLinejoin="round" d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z" />
                 </svg>
             </span>
-            <input className='pl-12 pr-6 py-4 rounded-md shadow-md' type="text" name="search" id="searhbar" placeholder='Search for a country ...'/>
+            <input className='pl-12 pr-6 py-4 rounded-md shadow-md' type="text" value={value} onChange={onChange} name="search" id="searhbar" placeholder='Search for a country ...'/>
         </div>
     );
 }
