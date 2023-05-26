@@ -1,11 +1,15 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
+
 
 
 const Header = () => {
     return (
         <header className='shadow-lg bg-white'>
             <div className="container flex justify-between items-center py-5">
-                <h2 className='font-bold text-2xl'>Where the world?</h2>
+                <h2 className='font-bold text-2xl'>
+                  <Link to="/">Where the world?</Link>
+                </h2>
                 <div className="color-mode">
                     <button className='p-2 rounded-sm flex items-center gap-3'>
                         <span>
