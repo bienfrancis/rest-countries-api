@@ -22,3 +22,24 @@
     align-items: center;
     height: 100vh;
   }
+
+  select{
+    outline: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    -ms-appearance: none;
+    appearance: none;
+    background-image: url('../src/assets/chevron-down.svg');
+    background-position: 139px center;
+    background-repeat: no-repeat;
+    padding-right: 20px; 
+  }
+
+  select > option{
+    padding: 5px 0;
+    border: none!important;
+  }
+
+  select:is(.dark .dark\:text-white){
+    background-image: url('../src/assets/chevron-down-white.svg');
+  }
