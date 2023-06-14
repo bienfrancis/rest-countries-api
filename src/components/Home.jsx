@@ -49,21 +49,22 @@ const Home = () => {
     console.log(filteredData)
 
     return (
-        <div className="content bg-veryLightGray min-h-screen">
+        <div className="content bg-veryLightGray min-h-screen dark:bg-veryDarkBlue">
           <div className="container py-16">
               <div className="filters flex justify-between items-center">
                 <SearchBar value={searchQuery} onChange={searchCountry}/>
-                <Filters regions={regions} onChange={filterCountry}/>
+                <Filters additionalClass='bg-dark-red' regions={regions} onChange={filterCountry}/>
               </div>
               {
                 filteredData.length === 0 ? <div className='loader-container'><div class="custom-loader"></div></div> :
               
               <div className='my-10 grid grid-cols-4 gap-16'>
                  {
-                  filteredData.map(item => (
-                    <div key={item.id}>
+                  filteredData.map((item, i) => (
+                    <div key={i}>
                     <Link to={`/country/${item.name.common}`} >  
-                      <Country 
+                      <Country
+                        key={i}
                         img={item.flags.png}
                         alt={item.flags.alt}
                         title={item.name.common}

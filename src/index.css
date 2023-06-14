@@ -12,8 +12,8 @@
   }
   @keyframes s3 {to{transform: rotate(1turn)}}
 
-  .custom-loader.dark-mode{
-    background:conic-gradient(#0000 10%,#fcfcfc);
+  .custom-loader.dark{
+    background:conic-gradient(#fff 10%,#fcfcfc);
   }
 
   .loader-container{
